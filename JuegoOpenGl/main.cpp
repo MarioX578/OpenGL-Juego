@@ -1,27 +1,30 @@
+#include <stdio.h>
 #include <SDL/SDL.h>
-#include <iostream>
+#include <assert.h>
 
-int main(int argc, char* argv[]) {
-    // Inicializar SDL
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cerr << "Error al inicializar SDL: " << SDL_GetError() << std::endl;
-        return 1;
-    }
+int main(int argc, char** argv)
+{
+	assert(SDL_Init(SDL_INIT_EVERYTHING) == 0 && "No se pudo iniciar SDL");
+	SDL_Window* Window = SDL_CreateWindow("OpenGL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+	assert(Window && "No se creó la ventana SDL");
 
-    // Crear una ventana
-    SDL_Window* window = SDL_CreateWindow("SDL Basic Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
-    if (!window) {
-        std::cerr << "Error al crear la ventana: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return 1;
-    }
+	bool Funciona = true;
+	while (Funciona)
+	{
+		SDL_Event e;
+		while (SDL_PollEvent(&e) != 0)
+		{
+			switch (e.type)
+			{
+			case SDL_QUIT:
+				Funciona = false;
+				break;
+			}
+		}
+	}
 
-    // Mantener la ventana abierta durante 3 segundos
-    SDL_Delay(3000);
+	SDL_DestroyWindow(Window);
+	SDL_Quit();
 
-    // Liberar recursos
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-
-    return 0;
+	return 0;
 }

@@ -90,10 +90,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ext\glad.c" />
+    <ClCompile Include="src\Cliente\game.cpp" />
     <ClCompile Include="src\Cliente\main.cpp" />
     <ClCompile Include="src\Engine\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Cliente\game.hpp" />
     <ClInclude Include="src\Engine\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

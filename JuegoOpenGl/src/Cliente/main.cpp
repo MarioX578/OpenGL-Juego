@@ -1,15 +1,11 @@
 #include <stdio.h>
-#include "window.h"
+#include "Game.hpp"
 
 int main(int argc, char** argv)
 {
 
-	GL::Window window("OpenGl", 800, 600);
+	Game game;
+	game.Run();
 
-	while (window.corriendo())
-	{
-	
-		window.RecibirEvento();
-	}
 	return 0;
 }

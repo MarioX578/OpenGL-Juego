@@ -12,10 +12,15 @@ namespace GL
 
         inline bool corriendo() const { return m_corriendo; }
         inline void cerrar() { m_corriendo = false; }
+
+
         void RecibirEvento();
+        void cambiar();
 
     private:
         bool m_corriendo = true;
         void* m_windowHandle = nullptr;
+        void* m_OpenGLContext = nullptr;
+
     };
 }

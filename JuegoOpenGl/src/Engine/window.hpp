@@ -1,4 +1,7 @@
 #include <cstdint>
+#include "Renderizador.hpp"
+#include <memory>
+
 
 namespace GL 
 {
@@ -16,6 +19,10 @@ namespace GL
 
         void RecibirEvento();
         void cambiar();
+
+
+        std::unique_ptr<Rederizador> CrearRenderizador();
+
 
     private:
         bool m_corriendo = true;

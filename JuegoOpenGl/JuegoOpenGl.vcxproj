@@ -21,13 +21,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -93,11 +93,13 @@
     <ClCompile Include="ext\glad.c" />
     <ClCompile Include="src\Cliente\game.cpp" />
     <ClCompile Include="src\Cliente\main.cpp" />
+    <ClCompile Include="src\Engine\Renderizador.cpp" />
     <ClCompile Include="src\Engine\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Cliente\game.hpp" />
-    <ClInclude Include="src\Engine\window.h" />
+    <ClInclude Include="src\Engine\Renderizador.hpp" />
+    <ClInclude Include="src\Engine\window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

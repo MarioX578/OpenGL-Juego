@@ -1,5 +1,5 @@
 #pragma once
-#include "Window.h"
+#include "Window.hpp"
 #include <memory>
 
 class Game
@@ -23,6 +23,7 @@ public:
 
 private:
 	std::unique_ptr<GL::Window> m_Window{};
+	std::unique_ptr<GL::Rederizador> m_Renderizador{};
 private:
 	void ManejarEntradaDeUsuario();
 	void Actualizar();

@@ -1,14 +1,14 @@
 #include "game.hpp"
-#include <glad/glad.h>
+#include "Renderizador.hpp"
 #include <glm/glm.hpp>
 
 
 void Game::Run()
 {
 	m_Window = std::make_unique<GL::Window>(Nombre, Ancho, Alto);
+	m_Renderizador = m_Window->CrearRenderizador();
 
-	glViewport(0, 0, Ancho, Alto);
-
+	m_Renderizador->Viewport(0, 0, Ancho, Alto);
 
 	while (m_Window->corriendo())
 	{
@@ -40,16 +40,15 @@ void Game::Renderizar()
 {
 	static float an = 0.0f;
 
-	float r = glm::sin(glm::radians(an));
-	float g = glm::sin(2 * glm::radians(an));
-	float b = glm::cos(glm::radians(an));
+	float r = glm::sin(glm::radians(an)) * 0.5f + 0.5f;
+	float g = glm::sin(2 * glm::radians(an)) * 0.5f + 0.5f;
+	float b = glm::cos(glm::radians(an)) * 0.5f + 0.5f;
 
-	glClearColor(r, g, b, 0.1f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	m_Renderizador->LimpiarPantalla(glm::vec4( r, g, b, 1.0f ));
 
 	m_Window->cambiar();
 
-	an += 2.0f / 360.0f;
+	an += 180.0f / 360.0f;
 
 
 
